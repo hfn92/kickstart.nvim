@@ -1,0 +1,68 @@
+return {
+  -- 'lukas-reineke/indent-blankline.nvim',
+  -- -- event = 'User FilePost',
+  -- lazy = false,
+  -- config = function(_, opts)
+  --   local hooks = require 'ibl.hooks'
+  --   hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+  --   hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
+  --   hooks.register(hooks.type.VIRTUAL_TEXT, function(_, _, _, virt_text)
+  --     if virt_text[1] and virt_text[1][1] == '┃' then
+  --       virt_text[1] = { ' ', { '@ibl.whitespace.char.1' } }
+  --     end
+  --
+  --     return virt_text
+  --   end)
+  --   local highlight = {
+  --     'IblIndent', -- This will be invisible for the first level
+  --     'RainbowRed',
+  --     'RainbowYellow',
+  --     'RainbowBlue',
+  --     'RainbowOrange',
+  --     'RainbowGreen',
+  --     'RainbowViolet',
+  --     'RainbowCyan',
+  --   }
+  --
+  --   local hooks = require 'ibl.hooks'
+  --   -- create the highlight groups in the highlight setup hook, so they are reset
+  --   -- every time the colorscheme changes
+  --   -- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+  --   --   vim.api.nvim_set_hl(0, 'IblIndent', { fg = 'NONE' })
+  --   --   vim.api.nvim_set_hl(0, 'RainbowRed', { fg = '#E06C75' })
+  --   --   vim.api.nvim_set_hl(0, 'RainbowYellow', { fg = '#E5C07B' })
+  --   --   vim.api.nvim_set_hl(0, 'RainbowBlue', { fg = '#61AFEF' })
+  --   --   vim.api.nvim_set_hl(0, 'RainbowOrange', { fg = '#D19A66' })
+  --   --   vim.api.nvim_set_hl(0, 'RainbowGreen', { fg = '#98C379' })
+  --   --   vim.api.nvim_set_hl(0, 'RainbowViolet', { fg = '#C678DD' })
+  --   --   vim.api.nvim_set_hl(0, 'RainbowCyan', { fg = '#56B6C2' })
+  --   -- end)
+  --   require('ibl').setup {
+  --     indent = {
+  --       char = '│',
+  --       -- highlight = 'IblChar',
+  --     },
+  --     -- scope = { char = '│', show_start = false, show_end = false },
+  --     scope = { enabled = false },
+  --     exclude = {
+  --       filetypes = {
+  --         'help',
+  --         'terminal',
+  --         'lazy',
+  --         'lspinfo',
+  --         'TelescopePrompt',
+  --         'TelescopeResults',
+  --         'mason',
+  --         'nvdash',
+  --         'nvcheatsheet',
+  --         '',
+  --       },
+  --       buftypes = { 'terminal' },
+  --     },
+  --     -- show_trailing_blankline_indent = false,
+  --     -- show_first_indent_level = false,
+  --     -- show_current_context = true,
+  --     -- show_current_context_start = true,
+  --   }
+  -- end,
+}
