@@ -7,6 +7,11 @@
   (#lua-match? @variable.builtin "^gl_")
   (#set! "priority" 101))
 
+
+; ((identifier) @variable.builtin
+;   (#any-of? @variable.builtin "UV" "inout" "fragment" "uniforms" "geometry" "params" "functions")
+;   (#set! "priority" 101))
+
 ; ((identifier) @keyword
 ;   (#lua-match? @keyword "^frag")
 ;   (#set! "priority" 101))

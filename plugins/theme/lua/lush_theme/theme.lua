@@ -431,6 +431,8 @@ local theme = lush(function(injected_functions)
     sym"@function.builtin.cmake" { fg = clr.text2 },
     sym"@constant.cmake" { fg = clr.red },
 
+    sym"@variable.builtin.glsl" { fg = clr.orange_darker },
+
 
     -- stylua: ignore end
 

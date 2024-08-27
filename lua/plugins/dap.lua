@@ -163,6 +163,7 @@ return {
     -- "rcarriga/nvim-dap-ui",
     "hfn92/nvim-dap-ui",
     branch = "custom_scopes",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
     config = function()
       require("dapui").setup {
         layouts = {
