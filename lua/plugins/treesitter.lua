@@ -29,6 +29,13 @@ return { -- Highlight, edit, and navigate code
   config = function(_, opts)
     pcall(function() end)
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+    --
+
+    local Path = require "plenary.path"
+
+    if Path:new(vim.uv.cwd() .. "/tools/after"):exists() then
+      vim.opt.runtimepath:append(vim.uv.cwd() .. "/tools/after")
+    end
 
     ---@diagnostic disable-next-line: missing-fields
     require("nvim-treesitter.configs").setup(opts)
@@ -39,5 +46,20 @@ return { -- Highlight, edit, and navigate code
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+    parser_config.lua = {
+      -- This is where we load our custom queries
+      queries = {
+        -- The language
+        lua = {
+          -- Load the custom highlight query
+          highlight = vim.uv.cwd() .. "/tools/queries/glsl.highlights.scm",
+          -- vim.fn.stdpath "config" .. "/my-queries/lua/highlights.scm",
+          -- Load the custom injection query
+          -- injections = vim.fn.stdpath "config" .. "/my-queries/lua/injections.scm",
+        },
+      },
+    }
   end,
 }

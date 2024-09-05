@@ -132,6 +132,7 @@ return {
         ["<leader>fu"] = { "<cmd> Telescope grep_string <CR>", "Grep string under cursor" },
         ["<leader>fr"] = { "<cmd> lua require('telescope.builtin').lsp_references() <CR>", "Find references" },
         ["<leader>fm"] = { "<cmd> Telescope marks <CR>", "Find marks" },
+        ["<leader>fq"] = { "<cmd> Telescope quickfixhistory <CR>", "quickfixhistory" },
 
         -- git
         ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },

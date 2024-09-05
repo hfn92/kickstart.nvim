@@ -18,6 +18,8 @@ return {
     -- vscode format
     require("luasnip.loaders.from_vscode").load()
     require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
+    -- require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
+    require("luasnip.loaders.from_vscode").load { paths = vim.uv.cwd() .. "/tools/snippets/" }
 
     -- snipmate format
     require("luasnip.loaders.from_snipmate").load()
