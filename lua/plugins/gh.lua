@@ -1,62 +1,46 @@
 return {
-  'hfn92/gh.nvim',
-  branch = 'windows_support',
-  dependencies = { 'ldelossa/litee.nvim', config = true },
-  keys = '<leader>gb',
+  "hfn92/gh.nvim",
+  branch = "windows_support",
+  dependencies = { "ldelossa/litee.nvim", config = true },
+  keys = "<leader>gb",
   config = function()
-    require('litee.gh').setup {
-      icon_set = 'nerd',
+    require("litee.gh").setup {
+      icon_set = "nerd",
     }
-    local wk = require 'which-key'
-    wk.register({
-      g = {
-        name = '+Git',
-        b = {
-          name = '+Github',
-          c = {
-            name = '+Commits',
-            c = { '<cmd>GHCloseCommit<cr>', 'Close' },
-            e = { '<cmd>GHExpandCommit<cr>', 'Expand' },
-            o = { '<cmd>GHOpenToCommit<cr>', 'Open To' },
-            p = { '<cmd>GHPopOutCommit<cr>', 'Pop Out' },
-            z = { '<cmd>GHCollapseCommit<cr>', 'Collapse' },
-          },
-          i = {
-            name = '+Issues',
-            p = { '<cmd>GHPreviewIssue<cr>', 'Preview' },
-          },
-          l = {
-            name = '+Litee',
-            t = { '<cmd>LTPanel<cr>', 'Toggle Panel' },
-          },
-          r = {
-            name = '+Review',
-            b = { '<cmd>GHStartReview<cr>', 'Begin' },
-            c = { '<cmd>GHCloseReview<cr>', 'Close' },
-            d = { '<cmd>GHDeleteReview<cr>', 'Delete' },
-            e = { '<cmd>GHExpandReview<cr>', 'Expand' },
-            s = { '<cmd>GHSubmitReview<cr>', 'Submit' },
-            z = { '<cmd>GHCollapseReview<cr>', 'Collapse' },
-          },
-          p = {
-            name = '+Pull Request',
-            c = { '<cmd>GHClosePR<cr>', 'Close' },
-            d = { '<cmd>GHPRDetails<cr>', 'Details' },
-            e = { '<cmd>GHExpandPR<cr>', 'Expand' },
-            o = { '<cmd>GHOpenPR<cr>', 'Open' },
-            p = { '<cmd>GHPopOutPR<cr>', 'PopOut' },
-            r = { '<cmd>GHRefreshPR<cr>', 'Refresh' },
-            t = { '<cmd>GHOpenToPR<cr>', 'Open To' },
-            z = { '<cmd>GHCollapsePR<cr>', 'Collapse' },
-          },
-          t = {
-            name = '+Threads',
-            c = { '<cmd>GHCreateThread<cr>', 'Create' },
-            n = { '<cmd>GHNextThread<cr>', 'Next' },
-            t = { '<cmd>GHToggleThread<cr>', 'Toggle' },
-          },
-        },
-      },
-    }, { prefix = '<leader>' })
+    local wk = require "which-key"
+    wk.add {
+      { "<leader>g", group = "Git" },
+      { "<leader>gb", group = "Github" },
+      { "<leader>gbc", group = "Commits" },
+      { "<leader>gbcc", "<cmd>GHCloseCommit<cr>", desc = "Close" },
+      { "<leader>gbce", "<cmd>GHExpandCommit<cr>", desc = "Expand" },
+      { "<leader>gbco", "<cmd>GHOpenToCommit<cr>", desc = "Open To" },
+      { "<leader>gbcp", "<cmd>GHPopOutCommit<cr>", desc = "Pop Out" },
+      { "<leader>gbcz", "<cmd>GHCollapseCommit<cr>", desc = "Collapse" },
+      { "<leader>gbi", group = "Issues" },
+      { "<leader>gbip", "<cmd>GHPreviewIssue<cr>", desc = "Preview" },
+      { "<leader>gbl", group = "Litee" },
+      { "<leader>gblt", "<cmd>LTPanel<cr>", desc = "Toggle Panel" },
+      { "<leader>gbp", group = "Pull Request" },
+      { "<leader>gbpc", "<cmd>GHClosePR<cr>", desc = "Close" },
+      { "<leader>gbpd", "<cmd>GHPRDetails<cr>", desc = "Details" },
+      { "<leader>gbpe", "<cmd>GHExpandPR<cr>", desc = "Expand" },
+      { "<leader>gbpo", "<cmd>GHOpenPR<cr>", desc = "Open" },
+      { "<leader>gbpp", "<cmd>GHPopOutPR<cr>", desc = "PopOut" },
+      { "<leader>gbpr", "<cmd>GHRefreshPR<cr>", desc = "Refresh" },
+      { "<leader>gbpt", "<cmd>GHOpenToPR<cr>", desc = "Open To" },
+      { "<leader>gbpz", "<cmd>GHCollapsePR<cr>", desc = "Collapse" },
+      { "<leader>gbr", group = "Review" },
+      { "<leader>gbrb", "<cmd>GHStartReview<cr>", desc = "Begin" },
+      { "<leader>gbrc", "<cmd>GHCloseReview<cr>", desc = "Close" },
+      { "<leader>gbrd", "<cmd>GHDeleteReview<cr>", desc = "Delete" },
+      { "<leader>gbre", "<cmd>GHExpandReview<cr>", desc = "Expand" },
+      { "<leader>gbrs", "<cmd>GHSubmitReview<cr>", desc = "Submit" },
+      { "<leader>gbrz", "<cmd>GHCollapseReview<cr>", desc = "Collapse" },
+      { "<leader>gbt", group = "Threads" },
+      { "<leader>gbtc", "<cmd>GHCreateThread<cr>", desc = "Create" },
+      { "<leader>gbtn", "<cmd>GHNextThread<cr>", desc = "Next" },
+      { "<leader>gbtt", "<cmd>GHToggleThread<cr>", desc = "Toggle" },
+    }
   end,
 }
