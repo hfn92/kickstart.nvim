@@ -16,6 +16,11 @@ function RunPerfCacheMisses()
   }
 end
 
+function RunPerf()
+  local cmake = require "cmake-tools"
+  cmake.run { wrap_call = { "perf", "record", "--call-graph", "dwarf" } }
+end
+
 function AnalyzePerf()
   local cmake = require "cmake-tools"
   local target = cmake.get_launch_target()
@@ -41,6 +46,7 @@ end
 return {
   -- "t-troebst/perfanno.nvim",
   "hfn92/perfanno.nvim",
+  keys = "<leader>p",
   config = function()
     local util = require "perfanno.util"
     local bgcolor = vim.fn.synIDattr(vim.fn.hlID "Normal", "bg", "gui")
@@ -81,7 +87,7 @@ return {
         return res
       end,
 
-      require("utils.mappings").load {
+      SetKeyBinds {
         n = {
           ["<leader>pr"] = { [[<cmd>lua RunPerf()<CR>]], "Run perf" },
           ["<leader>pa"] = { [[<cmd>lua AnalyzePerf()<CR>]], "Analyze Perf" },

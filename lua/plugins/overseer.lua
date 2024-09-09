@@ -10,7 +10,7 @@ return {
         ["<leader>oh"] = { "<CMD> OverseerQuickAction open hsplit<CR>", "Overseet open hsplit" },
         ["<leader>ov"] = { "<CMD> OverseerQuickAction open vsplit<CR>", "Overseet open vsplit" },
         ["<leader>oq"] = { "<CMD> OverseerQuickAction open output in quickfix<CR>", "Overseet open quickfix" },
-        ["<leader>oo"] = { "<CMD> OverseerToggle<CR>", "Overseet toggle" },
+        ["<leader>oo"] = { "<CMD> OverseerToggle left<CR>", "Overseet toggle" },
       },
     }
   end,
