@@ -3,10 +3,14 @@ SetKeyBinds {
   i = {
     ["<A-j>"] = { "<cmd>cnext<CR>zz", "Quickfix next" },
     ["<A-k>"] = { "<cmd>cprev<CR>zz", "Quickfix previous" },
+    ["<A-S-k>"] = { ":colder<CR>", "Quickfix older match" },
+    ["<A-S-j>"] = { ":cnewer<CR>", "Quickfix newer match" },
   },
   n = {
     ["<A-j>"] = { "<cmd>cnext<CR>zz", "Quickfix next" },
     ["<A-k>"] = { "<cmd>cprev<CR>zz", "Quickfix previous" },
+    ["<A-S-k>"] = { ":colder<CR>", "Quickfix older match" },
+    ["<A-S-j>"] = { ":cnewer<CR>", "Quickfix newer match" },
     ["<leader>k"] = { "<cmd>lnext<CR>zz", "Location next" },
     ["<leader>j"] = { "<cmd>lprev<CR>zz", "Location previous" },
 

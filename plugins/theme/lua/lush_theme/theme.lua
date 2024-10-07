@@ -617,6 +617,9 @@ local theme = lush(function(injected_functions)
 
     TodoBgPERF        { bg = clr.red_darker2                 },
     TodoFgPERF        { bg = clr.red_darker2                 },
+
+    TodoBgNOTE        { bg = clr.green_light,   fg = clr.bg_darker, gui = "bold"  },
+    TodoFgNOTE        { fg = clr.green_light                  },
   }
   -- stylua: ignore end
 
