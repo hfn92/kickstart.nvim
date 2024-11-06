@@ -47,6 +47,11 @@ return {
       columns = {
         "icon",
       },
+      keymaps = {
+        ["gy"] = "actions.yank_entry",
+        ["gt"] = "actions.open_terminal",
+        ["go"] = "actions.open_external",
+      },
     }
   end,
 }

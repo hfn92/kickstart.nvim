@@ -402,8 +402,8 @@ local theme = lush(function(injected_functions)
     sym'@lsp.type.macro.cpp'           { fg = clr.macro    },
 
     ---- LUA ---
-    sym'@lsp.type.class.lua'                { fg = clr.red      },
-    sym'@lsp.type.type.lua'                 { fg = clr.red      },
+    sym'@lsp.type.class.lua'                { fg = clr.text2      },
+    sym'@lsp.type.type.lua'                 { fg = clr.text2      },
     -- sym'@lsp.typemod.keyword.documentation' { fg = clr.grey_fg  },
     sym'@lsp.typemod.event.static'          { fg = clr.text    },
 

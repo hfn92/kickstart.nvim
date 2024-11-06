@@ -1,10 +1,10 @@
 return {
-  {
-    dir = vim.fn.stdpath "config" .. "/plugins/decorator",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = true,
-    ft = { "cpp", "lua", "markdown" },
-  },
+  -- {
+  --   dir = vim.fn.stdpath "config" .. "/plugins/decorator",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   config = true,
+  --   ft = { "cpp", "lua", "markdown" },
+  -- },
   {
     dir = vim.fn.stdpath "config" .. "/plugins/postfix_helper",
   },

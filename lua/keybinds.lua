@@ -157,6 +157,10 @@ SetKeyBinds {
     ["<Down>"] = { 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', "Move down", opts = { expr = true } },
   },
   v = {
+    ["<C-d>"] = { "<C-d>zz", "Scroll down" },
+    ["<C-f>"] = { "<C-u>zz", "Scroll up" },
+    ["<C-u>"] = { "<C-u>zz", "Scroll up" },
+
     ["J"] = { ":m '>+1<CR>gv=gv", "Move down" },
     ["K"] = { ":m '<-2<CR>gv=gv", "Move Up" },
     -- ["<S-Down>"] = { ":m '>+1<CR>gv=gv", "Move down" },
