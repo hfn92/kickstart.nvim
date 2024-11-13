@@ -39,6 +39,8 @@ return {
   config = function(_, opts)
     local builtin = require "telescope.builtin"
     local actions = require "telescope.actions"
+    local action_state = require "telescope.actions.state"
+
     require("telescope").setup {
       defaults = {
         vimgrep_arguments = {
@@ -102,13 +104,34 @@ return {
             ["<C-h>"] = actions.select_horizontal,
           },
         },
+      },
 
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown(),
+      pickers = {
+        git_commits = {
+          mappings = {
+            i = {
+              ["<CR>"] = function()
+                local entry = action_state.get_selected_entry()
+                actions.close(vim.api.nvim_get_current_buf())
+                vim.cmd(("DiffviewOpen %s^!"):format(entry.value))
+              end,
+            },
+            n = {
+              ["<CR>"] = function()
+                local entry = action_state.get_selected_entry()
+                actions.close(vim.api.nvim_get_current_buf())
+                vim.cmd(("DiffviewOpen %s^!"):format(entry.value))
+              end,
+            },
           },
         },
       },
+
+      -- extensions = {
+      --   ["ui-select"] = {
+      --     require("telescope.themes").get_dropdown(),
+      --   },
+      -- },
       --
       -- extensions_list = { 'themes', 'terms' },
     }
