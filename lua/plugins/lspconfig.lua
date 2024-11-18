@@ -230,5 +230,12 @@ return {
     require("lspconfig").cmake.setup {}
     require("lspconfig").asm_lsp.setup {}
     require("lspconfig").pylsp.setup {}
+    require("lspconfig").marksman.setup {}
+
+    -- local mason_registry = require "mason-registry"
+    -- local vale = mason_registry.get_package "vale"
+    -- -- vim.notify(vim.inspect(vale))
+    -- require("lspconfig").vale_ls.setup {}
+    -- require("lspconfig").ltex.setup {}
   end,
 }
