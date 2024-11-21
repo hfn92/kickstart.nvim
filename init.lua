@@ -95,7 +95,12 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 
 vim.opt.spelllang = { "en_us" }
-vim.opt.spell = true
+vim.opt.spell = false
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  command = "setlocal nospell",
+})
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
