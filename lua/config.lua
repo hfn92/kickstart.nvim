@@ -20,10 +20,17 @@ vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/snippets"
 do
   local x = vim.diagnostic.severity
 
+  -- vim.diagnostic.config {
+  --   virtual_text = { prefix = "" },
+  --   signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } },
+  --   underline = true,
+  --   float = { border = "single" },
+  -- }
+  --
   vim.diagnostic.config {
-    virtual_text = { prefix = "" },
+    virtual_text = false,
     signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } },
     underline = true,
-    float = { border = "single" },
+    float = { border = "none" },
   }
 end
