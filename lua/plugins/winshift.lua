@@ -46,7 +46,7 @@ local function input_char(prompt, opt)
 end
 
 ---@param opt WindowPickerSpec
-local window_picker = function(opt)
+local function window_picker(opt)
   opt = opt or {}
   local tabpage = api.nvim_get_current_tabpage()
   local win_ids = api.nvim_tabpage_list_wins(tabpage)
