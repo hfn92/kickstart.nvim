@@ -7,11 +7,16 @@ return {
   config = function()
     require("lsp_lines").setup()
 
+    vim.diagnostic.config { virtual_lines = { only_current_line = true } }
+    -- vim.diagnostic.config { virtual_lines = { highlight_whole_line = false } }
+
     local toggle = function()
-      vim.diagnostic.config {
-        virtual_text = not vim.diagnostic.config().virtual_text,
-        virtual_lines = not vim.diagnostic.config().virtual_lines,
-      }
+      local active = vim.diagnostic.config().virtual_lines
+      if active then
+        vim.diagnostic.config { virtual_lines = false }
+      else
+        vim.diagnostic.config { virtual_lines = { only_current_line = true } }
+      end
     end
     -- toggle()
 

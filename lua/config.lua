@@ -28,7 +28,7 @@ do
   -- }
   --
   vim.diagnostic.config {
-    virtual_text = false,
+    virtual_text = true,
     signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } },
     underline = true,
     float = { border = "none" },

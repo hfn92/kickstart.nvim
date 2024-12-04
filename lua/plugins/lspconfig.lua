@@ -1,3 +1,5 @@
+local util = require "lspconfig.util"
+
 return {
   -- Main LSP Configuration
   "neovim/nvim-lspconfig",
@@ -201,6 +203,9 @@ return {
         -- client.server_capabilities.semanticTokensProvider = nil
         client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
       end,
+      root_dir = function()
+        return util.find_git_ancestor(vim.fn.getcwd())
+      end,
       settings = {
         Lua = {
           runtime = {
@@ -227,7 +232,7 @@ return {
         },
       },
     }
-    require("lspconfig").cmake.setup {}
+    require("lspconfig").neocmake.setup {}
     require("lspconfig").asm_lsp.setup {}
     require("lspconfig").pylsp.setup {}
     require("lspconfig").marksman.setup {}
