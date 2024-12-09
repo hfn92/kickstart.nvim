@@ -1,3 +1,5 @@
+vim.keymap.set("n", "s", "<nop>")
+
 -- [[ Quickfix ]]
 SetKeyBinds {
   i = {
@@ -90,6 +92,14 @@ SetKeyBinds {
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
     ["<leader>s"] = { [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "Replace under cursor" },
+    ["yu"] = {
+      function()
+        vim.api.nvim_feedkeys("yygccp", "m", false)
+      end,
+      "duplicate and comment line",
+    },
+    ["<BS>"] = { "ciw", "ciw" },
+    ["gy"] = { "`[v`]", "Select recently pasted, yanked or changed text" },
   },
   v = {
     ["<leader>q"] = { [[:norm! @]], "Execute macro" },

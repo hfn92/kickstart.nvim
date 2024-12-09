@@ -1,5 +1,3 @@
-local util = require "lspconfig.util"
-
 return {
   -- Main LSP Configuration
   "neovim/nvim-lspconfig",
@@ -204,6 +202,7 @@ return {
         client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
       end,
       root_dir = function()
+        local util = require "lspconfig.util"
         return util.find_git_ancestor(vim.fn.getcwd())
       end,
       settings = {
