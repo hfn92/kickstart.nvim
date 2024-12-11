@@ -204,3 +204,8 @@ vim.cmd "colorscheme theme"
 
 local loader = require "utils.loader"
 loader.load_queries()
+
+vim.api.nvim_create_user_command("Scratch", function()
+  vim.cmd "enew"
+  vim.cmd "set bt=nowrite"
+end, {})

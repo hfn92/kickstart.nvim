@@ -5,6 +5,7 @@ return {
     require("colorizer").setup {
       user_default_options = {
         names = false,
+        RRGGBB = true,
         RRGGBBAA = true, -- #RRGGBBAA hex codes
         -- AARRGGBB = true, -- 0xAARRGGBB hex codes
       },
