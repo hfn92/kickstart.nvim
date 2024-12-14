@@ -22,13 +22,7 @@ return {
 
       -- `build` is used to run some command when the plugin is installed/updated.
       -- This is only run then, not every time Neovim starts up.
-      build = "make",
-
-      -- `cond` is a condition used to determine whether this plugin should be
-      -- installed and loaded.
-      cond = function()
-        return vim.fn.executable "make" == 1
-      end,
+      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
     },
     { "nvim-telescope/telescope-ui-select.nvim" },
 
@@ -127,6 +121,16 @@ return {
         },
       },
 
+      extensions = {
+        fzf = {
+          fuzzy = true, -- false will only do exact matching
+          override_generic_sorter = true, -- override the generic sorter
+          override_file_sorter = true, -- override the file sorter
+          case_mode = "ignore_case", -- or "ignore_case" or "respect_case"
+          -- the default case_mode is "smart_case"
+        },
+      },
+
       -- extensions = {
       --   ["ui-select"] = {
       --     require("telescope.themes").get_dropdown(),
@@ -136,13 +140,15 @@ return {
       -- extensions_list = { 'themes', 'terms' },
     }
 
+    local grep = require "telescope.multigrep"
+
     SetKeyBinds {
       n = {
 
         -- find
         ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
         ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
-        ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+        ["<leader>fw"] = { grep, "Live grep" },
         ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
         ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
         ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
@@ -214,7 +220,7 @@ return {
     }
 
     -- Enable Telescope extensions if they are installed
-    pcall(require("telescope").load_extension, "fzf")
+    -- pcall(require("telescope").load_extension, "fzf")
     pcall(require("telescope").load_extension, "ui-select")
     pcall(require("telescope").load_extension, "themes")
     pcall(require("telescope").load_extension, "terms")
