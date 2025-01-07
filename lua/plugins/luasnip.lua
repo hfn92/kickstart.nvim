@@ -1,5 +1,6 @@
 return {
   "L3MON4D3/LuaSnip",
+  version = "2.*",
   dependencies = "rafamadriz/friendly-snippets",
   opts = { history = true, updateevents = "TextChanged,TextChangedI", ext_opts = {} },
   config = function(_, opts)
@@ -53,16 +54,24 @@ return {
       end
     end)
 
-    vim.api.nvim_create_autocmd("InsertLeave", {
-      callback = function()
-        if
-          require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-          and not require("luasnip").session.jump_active
-        then
-          require("luasnip").unlink_current()
-        end
-      end,
-    })
+    -- vim.keymap.set({ "i", "s" }, "<Tab>", function()
+    --   return ls.expand_or_locally_jumpable() and ls.expand_or_jump() or vim.notify "LOL"
+    -- end, { desc = "Luasnip - Jump to next node" })
+    --
+    -- vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+    --   return ls.in_snippet() and ls.jumpable(-1) and ls.jump(-1) or vim.notify "LOL"
+    -- end, { desc = "Luasnip - Jump to previous node" })
+    --
+    -- vim.api.nvim_create_autocmd("InsertLeave", {
+    --   callback = function()
+    --     if
+    --       require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+    --       and not require("luasnip").session.jump_active
+    --     then
+    --       require("luasnip").unlink_current()
+    --     end
+    --   end,
+    -- })
     opts.ft_func = require("luasnip.extras.filetype_functions").from_cursor_pos
   end,
 }

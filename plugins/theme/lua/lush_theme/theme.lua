@@ -251,7 +251,7 @@ local theme = lush(function(injected_functions)
     DiagnosticWarn { fg = clr.orange }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticInfo { fg = clr.keyword }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticHint { fg = clr.grey_light },
-    -- DiagnosticOk {}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticOk { fg = clr.green }, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
@@ -652,6 +652,7 @@ local theme = lush(function(injected_functions)
     -- -- RenderMarkdown_RenderMarkdownH5_RenderMarkdownSign          { fg="#9acfd6", },
     -- -- RenderMarkdown_DevIconCpp_RenderMarkdownSign                { fg="#519aba", },
     -- RenderMarkdown_bgtofg_RenderMarkdownCode                    { fg = clr.red },
+    FlashLabel = { fg = clr.red },
     -- --
   }
   -- stylua: ignore end

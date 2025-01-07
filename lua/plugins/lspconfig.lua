@@ -16,7 +16,7 @@ return {
     -- Allows extra capabilities provided by nvim-cmp
     "hrsh7th/cmp-nvim-lsp",
     "jose-elias-alvarez/null-ls.nvim",
-    "ray-x/lsp_signature.nvim",
+    -- "ray-x/lsp_signature.nvim",
   },
   config = function()
     local highlights_active = false
@@ -169,7 +169,7 @@ return {
 
     require("lspconfig").clangd.setup {
       on_attach = function(client, bufnr)
-        require("lsp_signature").on_attach(client, bufnr) -- Note: add in lsp client on-attach
+        -- require("lsp_signature").on_attach(client, bufnr) -- Note: add in lsp client on-attach
         require("lsp-format").on_attach(client, bufnr)
         client.server_capabilities.semanticTokensProvider = nil
       end,
@@ -205,6 +205,11 @@ return {
         local util = require "lspconfig.util"
         return util.find_git_ancestor(vim.fn.getcwd())
       end,
+      -- cmd = {
+      --   "/home/fab/Work/lua-language-server/bin/lua-language-server",
+      --   "--loglevel=trace",
+      --   "--logpath=/tmp/luals.log",
+      -- },
       settings = {
         Lua = {
           runtime = {
