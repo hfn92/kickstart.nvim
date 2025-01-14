@@ -72,6 +72,8 @@ return {
       end,
     })
 
+    local use_semantic_token = false
+
     SetKeyBinds {
       n = {
         ["H"] = {
@@ -79,6 +81,14 @@ return {
             vim.lsp.buf.document_highlight()
           end,
           "highlight symbol under cursor",
+        },
+        ["<leader>tp"] = {
+          function()
+            use_semantic_token = not use_semantic_token
+            vim.notify("semanticTokensProvider:" .. (use_semantic_token and "on" or "off"))
+            vim.cmd("LspRestart")
+          end,
+          "Toogle semanticTokensProvider",
         },
         ["<leader>th"] = {
           function()
@@ -171,7 +181,9 @@ return {
       on_attach = function(client, bufnr)
         -- require("lsp_signature").on_attach(client, bufnr) -- Note: add in lsp client on-attach
         require("lsp-format").on_attach(client, bufnr)
-        client.server_capabilities.semanticTokensProvider = nil
+        if not use_semantic_token then
+          client.server_capabilities.semanticTokensProvider = nil
+        end
       end,
       on_new_config = function(new_config, new_cwd)
         local status, cmake = pcall(require, "cmake-tools")

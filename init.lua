@@ -200,7 +200,7 @@ require("lazy").setup({
 
 require "keybinds"
 
-vim.cmd "colorscheme theme"
+vim.cmd "colorscheme theme3"
 
 local loader = require "utils.loader"
 loader.load_queries()
@@ -208,4 +208,8 @@ loader.load_queries()
 vim.api.nvim_create_user_command("Scratch", function()
   vim.cmd "enew"
   vim.cmd "set bt=nowrite"
+end, {})
+
+vim.api.nvim_create_user_command("Insp", function()
+  require("utils.inspect").show_pos()
 end, {})
