@@ -76,7 +76,7 @@ local clr = {
   grey_fg       = '#A8ABB0', -- comments
   grey_light    = '#b4bbc8',
   grey2         = "#9b9ea4",
-  grey3         = "#65686f",
+  grey3         = "#7b7f87",
 
   yellow        = '#d7bd8d',
   yellow2       = '#bca984',
@@ -100,6 +100,7 @@ clr.string = clr.yellow
 clr.number = clr.yellow
 clr.type = clr.grey2
 clr.comment = clr.grey3
+clr.comment = "#999389"
 clr.func = "#D6CF9A"
 -- clr.func = clr.blue
 clr.property = clr.text2
