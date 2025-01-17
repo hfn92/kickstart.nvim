@@ -105,7 +105,6 @@ clr.func = "#D6CF9A"
 -- clr.func = clr.blue
 clr.property = clr.text2
 -- clr.macro = clr.green_darker
-
 clr.func = clr.burned
 clr.text2 = clr.burned
 clr.text = clr.burned
@@ -138,7 +137,7 @@ local theme = lush(function(injected_functions)
     Normal { fg = clr.text, bg = clr.bg }, -- Normal text
     ColorColumn { bg = clr.bg_light }, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
-    -- Cursor {}, -- Character under the cursor
+    -- Cursor {fg = clr.red }, -- Character under the cursor
     -- CurSearch      { }, -- Highlighting a search pattern under the cursor (see 'hlsearch')
     -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
@@ -166,7 +165,8 @@ local theme = lush(function(injected_functions)
     LineNr { fg = clr.grey }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     -- LineNrAbove    { }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     -- LineNrBelow    { }, -- Line number for when the 'relativenumber' option is set, below the cursor line
-    CursorLineNr { fg = clr.white }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    CursorLineNr { fg = clr.burned }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+    -- CursorLineNr { fg = clr.orange2 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
     -- MatchParen     { }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
@@ -461,6 +461,8 @@ local theme = lush(function(injected_functions)
 
     ------- CODE ----
     -- stylua: ignore start
+    TabSelected       { bg = clr.bg_darker2, fg = clr.green_light, gui = "bold" },
+    TabNormal         { Comment },
 
     DapBreakpoint               { fg = '#993939'   },
     DapUIType                   { fg = clr.grey    },
@@ -604,8 +606,11 @@ local theme = lush(function(injected_functions)
     BufferLineDevIconlua         { bg =clr.bg_darker2,   fg = clr.grey    },
     BufferLineDevIconluaInactive {BufferLineDevIconlua                    },
 
-    BufferLineTab { fg = "#9b9ea4", },
-    BufferLineTabSelected { fg = clr.green_light, bg = "#2e2f30", gui = "underline" },
+    BufferLineTab { fg = "#9b9ea4", bg = "#333436" },
+    BufferLineTabSelected { fg = clr.green_light, bg = "#333436", gui = "underline" },
+
+    -- lualine_z_tab_inactive { fg = "#9b9ea4", },
+    -- lualine_z_tab_active { fg = clr.green_light, bg = "#2e2f30", gui = "underline" },
 
     MasonHighlightBlock     { bg = "#a4b595", fg = "#2e2f30" },
     MasonHighlightBlockBold { MasonHighlightBlock            },

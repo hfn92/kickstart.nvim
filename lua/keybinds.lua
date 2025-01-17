@@ -128,6 +128,18 @@ SetKeyBinds {
   },
 
   n = {
+    ["<S-Tab>"] = {
+      function()
+        vim.cmd "bprev"
+        require("utils.popup"):show_buffers()
+      end,
+    },
+    ["<Tab>"] = {
+      function()
+        vim.cmd "bnext"
+        require("utils.popup"):show_buffers()
+      end,
+    },
     ["<C-d>"] = { "<C-d>zz", "Scroll down" },
     ["<C-f>"] = { "<C-u>zz", "Scroll up" },
     ["<C-u>"] = { "<C-u>zz", "Scroll up" },

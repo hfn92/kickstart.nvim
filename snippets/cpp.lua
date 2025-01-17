@@ -90,28 +90,28 @@ for ({} {} : {})
     )
   ),
 
-  s(
-    "me",
-    fmt(
-      [[
-{r} {n}({p}){m};
-{r} {cls}::{n}({p}){m}
-{{
-  {}
-}}]],
-      {
-        r = i(1, "void"),
-        n = i(2),
-        p = i(3),
-        m = c(4, { t "", t " const noexcept", t " const", t " noexcept" }),
-        cls = f(function()
-          return GetClassName()
-        end),
-        i(5),
-      },
-      { repeat_duplicates = true }
-    )
-  ),
+  --   s(
+  --     "me",
+  --     fmt(
+  --       [[
+  -- {r} {n}({p}){m};
+  -- {r} {cls}::{n}({p}){m}
+  -- {{
+  --   {}
+  -- }}]],
+  --       {
+  --         r = i(1, "void"),
+  --         n = i(2),
+  --         p = i(3),
+  --         m = c(4, { t "", t " const noexcept", t " const", t " noexcept" }),
+  --         cls = f(function()
+  --           return GetClassName()
+  --         end),
+  --         i(5),
+  --       },
+  --       { repeat_duplicates = true }
+  --     )
+  --   ),
 
   pf("/cr", "const %s& "),
   pf("/ve", "std::vector<%s>"),

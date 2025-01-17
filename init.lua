@@ -5,6 +5,7 @@ vim.opt.ruler = false
 
 -- disable nvim intro
 vim.opt.shortmess:append "sI"
+vim.opt.showtabline = 0
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
