@@ -1,9 +1,9 @@
 return {
-  'nvim-treesitter/nvim-treesitter-textobjects',
+  "nvim-treesitter/nvim-treesitter-textobjects",
   lazy = false,
   config = function()
     ---@diagnostic disable-next-line: missing-fields
-    require('nvim-treesitter.configs').setup {
+    require("nvim-treesitter.configs").setup {
       textobjects = {
         select = {
           enable = true,
@@ -13,17 +13,19 @@ return {
 
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
-            ['aa'] = '@parameter.outer',
-            ['ia'] = '@parameter.inner',
+            ["aa"] = "@parameter.outer",
+            ["ia"] = "@parameter.inner",
             -- ["at"] = "@type.inner",
-            ['aF'] = '@function.outer',
-            ['af'] = '@function.inner',
+            ["aF"] = "@function.outer",
+            ["af"] = "@function.inner",
             -- ["ac"] = "@class.outer",
             -- -- You can optionally set descriptions to the mappings (used in the desc parameter of
             -- -- nvim_buf_set_keymap) which plugins like which-key display
             -- ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
             -- -- You can also use captures from other query groups like `locals.scm`
             -- ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+            ["aS"] = "@c_string.outer",
+            ["as"] = "@c_string.inner",
           },
           -- You can choose the select mode (default is charwise 'v')
           --
@@ -52,9 +54,9 @@ return {
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
-            [']]'] = '@parameter.inner',
-            [']a'] = '@parameter.outer',
-            [']f'] = '@function.outer',
+            ["]]"] = "@parameter.inner",
+            ["]a"] = "@parameter.outer",
+            ["]f"] = "@function.outer",
             -- ["]]"] = { query = "@class.outer", desc = "Next class start" },
             --
             -- You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queires.
@@ -67,17 +69,17 @@ return {
             -- ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
           },
           goto_next_end = {
-            [']F'] = '@function.outer',
+            ["]F"] = "@function.outer",
             -- ["]["] = "@class.outer",
           },
           goto_previous_start = {
-            ['[a'] = '@parameter.outer',
-            ['[['] = '@parameter.inner',
-            ['[f'] = '@function.outer',
+            ["[a"] = "@parameter.outer",
+            ["[["] = "@parameter.inner",
+            ["[f"] = "@function.outer",
             -- ["[["] = "@class.outer",
           },
           goto_previous_end = {
-            ['[F'] = '@function.outer',
+            ["[F"] = "@function.outer",
             -- ["[]"] = "@class.outer",
           },
         },
