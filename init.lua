@@ -27,6 +27,9 @@ vim.opt.number = false
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 vim.cmd "set nu"
+vim.opt.statuscolumn = ""
+-- vim.opt.statuscolumn = "%s  %r "
+-- vim.opt.statuscolumn = [[%s %=%{v:relnum > 0 ? printf("%i",v:relnum) : printf("%i",v:lnum)}  ]]
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"

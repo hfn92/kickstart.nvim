@@ -32,6 +32,9 @@ return {
           select = "x",
         },
       },
+      symbol_in_winbar = {
+        enable = false,
+      },
     }
     SetKeyBinds {
       i = {
