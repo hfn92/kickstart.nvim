@@ -59,7 +59,9 @@ return {
     "leiserfg/blink_luasnip",
     "milanglacier/minuet-ai.nvim",
   },
-  "saghen/blink.cmp",
+  -- "saghen/blink.cmp",
+  "hfn92/blink.cmp",
+  branch = "workaround2",
   lazy = false, -- lazy loading handled internally
   -- optional: provides snippets for the snippet source
 
