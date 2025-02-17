@@ -26,6 +26,7 @@ return {
             -- ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
             ["aS"] = "@c_string.outer",
             ["as"] = "@c_string.inner",
+            ["ae"] = "@c_expression",
           },
           -- You can choose the select mode (default is charwise 'v')
           --
