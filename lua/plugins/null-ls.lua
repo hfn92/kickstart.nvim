@@ -1,6 +1,6 @@
 return {
-  "jose-elias-alvarez/null-ls.nvim",
-  -- 'nvimtools/none-ls.nvim',
+  -- "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
 
   config = function()
     local null_ls = require "null-ls"
@@ -17,11 +17,9 @@ return {
       formatting.cmake_format,
       -- formatting.cmake_lint,
       --formatting.clang_format,
-      lint.shellcheck,
       lint.markdownlint,
       -- lint.misspll,
       formatting.markdownlint,
-      formatting.autopep8,
       -- null_ls.builtins.diagnostics.glslc.with {
       --   extra_args = { "--target-env=opengl", "-std=330core", "-fauto-map-locations" }, -- use opengl instead of vulkan1.0
       -- },

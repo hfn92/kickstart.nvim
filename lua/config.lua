@@ -14,6 +14,16 @@ vim.filetype.add { extension = { ani = "lua" } }
 
 vim.opt.fillchars:append { diff = "╱" }
 
+vim.opt.diffopt = {
+  "internal",
+  "filler",
+  "closeoff",
+  "context:12",
+  "algorithm:histogram",
+  "linematch:200",
+  "indent-heuristic",
+}
+
 vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/snippets"
 vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/snippets"
 

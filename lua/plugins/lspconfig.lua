@@ -15,7 +15,8 @@ return {
 
     -- Allows extra capabilities provided by nvim-cmp
     "hrsh7th/cmp-nvim-lsp",
-    "jose-elias-alvarez/null-ls.nvim",
+    -- "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     -- "ray-x/lsp_signature.nvim",
   },
   config = function()
@@ -86,7 +87,7 @@ return {
           function()
             use_semantic_token = not use_semantic_token
             vim.notify("semanticTokensProvider:" .. (use_semantic_token and "on" or "off"))
-            vim.cmd("LspRestart")
+            vim.cmd "LspRestart"
           end,
           "Toogle semanticTokensProvider",
         },
@@ -192,11 +193,13 @@ return {
         end
       end,
       capabilities = ccapabilities,
-      filetypes = { "c", "cpp" },
+      filetypes = { "c", "cpp", "cppm" },
       cmd = {
-        "clangd",
+        "/usr/bin/clangd",
         "--clang-tidy",
         "--header-insertion=never",
+        "--function-arg-placeholders=false",
+        "--experimental-modules-support",
       },
     }
 

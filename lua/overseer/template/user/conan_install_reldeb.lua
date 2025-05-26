@@ -14,7 +14,15 @@ return {
     -- Full path to current file (see :help expand())
     return {
       cmd = { "conan" },
-      args = { "install", "../..", "-s", "build_type=RelWithDebInfo", "--build=missing" },
+      args = {
+        "install",
+        "-of",
+        ".",
+        "../..",
+        "-s",
+        "build_type=RelWithDebInfo",
+        "--build=missing",
+      },
       cwd = "./build/RelWithDebInfo",
       components = { { "on_output_quickfix", open_on_exit = "failure" }, "default" },
     }
