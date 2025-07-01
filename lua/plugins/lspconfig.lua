@@ -87,7 +87,7 @@ return {
           function()
             use_semantic_token = not use_semantic_token
             vim.notify("semanticTokensProvider:" .. (use_semantic_token and "on" or "off"))
-            vim.cmd "LspRestart"
+            vim.cmd "LspRestart clangd"
           end,
           "Toogle semanticTokensProvider",
         },
@@ -163,16 +163,18 @@ return {
     require("mason-tool-installer").setup { ensure_installed = ensure_installed }
 
     require("mason-lspconfig").setup {
-      handlers = {
-        function(server_name)
-          local server = servers[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tsserver)
-          server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-          require("lspconfig")[server_name].setup(server)
-        end,
-      },
+      automatic_enable = {},
+      ensure_installed = {},
+      -- handlers = {
+      --   function(server_name)
+      --     local server = servers[server_name] or {}
+      --     -- This handles overriding only values explicitly passed
+      --     -- by the server configuration above. Useful when disabling
+      --     -- certain features of an LSP (for example, turning off formatting for tsserver)
+      --     server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+      --     require("lspconfig")[server_name].setup(server)
+      --   end,
+      -- },
     }
 
     local ccapabilities = vim.lsp.protocol.make_client_capabilities()
@@ -193,9 +195,12 @@ return {
         end
       end,
       capabilities = ccapabilities,
-      filetypes = { "c", "cpp", "cppm" },
+      filetypes = { "c", "cpp", "cppm", "ixx" },
       cmd = {
-        "/usr/bin/clangd",
+        -- "clangd",
+        -- "/usr/bin/clangd",
+        "/home/fab/Work/llvm-project/build/bin/clangd",
+        -- "/home/fab/Work/clangd_snapshot_20250525/bin/clangd",
         "--clang-tidy",
         "--header-insertion=never",
         "--function-arg-placeholders=false",

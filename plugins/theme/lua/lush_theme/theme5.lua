@@ -80,7 +80,7 @@ local clr = {
 
   yellow        = '#d7bd8d',
   yellow2       = '#bca984',
-  bg_highlight  = "#8a7f2c",
+  bg_highlight  = "#756809",
 
   orange_darker = '#de935f',
   orange2       = '#D69545',
@@ -106,6 +106,7 @@ clr.func = "#D6CF9A"
 clr.property = clr.text2
 -- clr.macro = clr.green_darker
 clr.func = clr.burned
+clr.constant = clr.text2
 clr.text2 = clr.burned
 clr.text = clr.burned
 clr.type = clr.burn_red
@@ -420,7 +421,7 @@ local theme = lush(function(injected_functions)
     sym'@type.qualifier.cpp'           { fg = clr.keyword  },
     sym'@property.cpp'                 { fg = clr.text     },
     sym'@parameter.cpp'                { fg = clr.text     },
-    sym'@constant.cpp'                 { fg = clr.text     },
+    sym'@constant.cpp'                 { fg = clr.constant },
     sym'@attribute.cpp'                { fg = clr.text2    },
     sym'@Field.cpp'                    { fg = clr.text     },
     sym'@constructor.cpp'              { fg = clr.text     },

@@ -14,7 +14,7 @@ local function setup()
   }
 
   local mason_registry = require "mason-registry"
-  local codelldb = mason_registry.get_package "codelldb" -- note that this will error if you provide a non-existent package name
+  local codelldb_path = vim.fn.expand "$MASON/packages/codelldb"
 
   -- dap.adapters.codelldb = {
   --   stopOnEntry = false,
@@ -25,13 +25,15 @@ local function setup()
   --   -- On windows you may have to uncomment this:
   --   -- detached = false,
   -- }
+  --
+  vim.notify(codelldb_path)
 
   dap.adapters.codelldb = {
     stopOnEntry = false,
     type = "server",
     port = "${port}",
     executable = {
-      command = codelldb:get_install_path() .. "/extension/adapter/codelldb",
+      command = codelldb_path .. "/extension/adapter/codelldb",
       args = { "--port", "${port}" },
 
       -- On windows you may have to uncomment this:

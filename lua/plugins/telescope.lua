@@ -11,6 +11,40 @@ local function getVisualSelection()
   end
 end
 
+local max_tail_length = 0
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "TelescopeResults",
+  callback = function(ctx)
+    vim.api.nvim_buf_call(ctx.buf, function()
+      vim.fn.matchadd("TelescopeParent", "\t\t.*$")
+      vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+    end)
+  end,
+})
+
+local function padded_path_display(opts, path)
+  local tail = require("telescope.utils").path_tail(path)
+  if #tail > max_tail_length then
+    max_tail_length = #tail
+  end
+
+  local win_id = vim.api.nvim_get_current_win()
+  local win_width = vim.api.nvim_win_get_width(win_id)
+
+  local padding = max_tail_length - #tail
+  local padded_tail = tail .. string.rep(" ", padding)
+  padded_tail = padded_tail .. "\t\t"
+  -- limit total width to avoid overflow
+  local path_text = string.format("%s (%s)", padded_tail, path)
+  if #path_text > win_width - 2 then
+    local trim_length = #path_text - (win_width - 2)
+    path_text = padded_tail .. " (" .. string.sub(path, 1 + trim_length) .. "…)"
+  end
+
+  return path_text, { { { 1 + padding, #padded_tail + padding }, "Constant" } }
+end
+
 return {
   -- Fuzzy Finder (files, lsp, etc)
   "nvim-telescope/telescope.nvim",
@@ -101,6 +135,12 @@ return {
       },
 
       pickers = {
+        find_files = {
+          path_display = function(opts, path)
+            return padded_path_display(opts, path)
+          end,
+        },
+
         git_commits = {
           mappings = {
             i = {
@@ -189,7 +229,7 @@ return {
         },
         ["<leader>f/ag"] = {
           function()
-            builtin.live_grep {
+            grep {
               cwd = vim.fn.expand "%:p:h",
             }
           end,

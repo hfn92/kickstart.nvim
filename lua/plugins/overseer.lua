@@ -1,9 +1,29 @@
 return {
   "stevearc/overseer.nvim",
   config = function()
-    require("overseer").setup {
-      templates = { "builtin", "user.conan_install_debug", "user.conan_install_reldeb" },
+    local overseer = require "overseer"
+
+    overseer.setup {
+      templates = { "builtin" },
+      user_template_dir = ".overseer",
     }
+
+    local scan = require "plenary.scandir"
+    local path = require "plenary.path"
+    local dbh_path = path:new "./tools/overseer"
+
+    -- vim.notify "loading "
+    if dbh_path:exists() then
+      local files = scan.scan_dir(dbh_path.filename, {})
+      for _, v in ipairs(files) do
+        -- vim.notify("loading " .. v)
+        local data = dofile(v)
+        overseer.register_template(data)
+      end
+    end
+
+    -- overseer.register_template(require "path.to.my.template")
+
     SetKeyBinds {
       n = {
         ["<leader>of"] = { "<CMD> OverseerQuickAction open float<CR>", "Overseet open float " },
