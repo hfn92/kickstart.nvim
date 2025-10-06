@@ -9,6 +9,11 @@ return {
         augend.integer.alias.hex,
         augend.date.alias["%Y/%m/%d"],
         augend.constant.alias.bool,
+        augend.constant.new {
+          elements = { "VK_FALSE", "VK_TRUE" },
+          word = true, -- if false, "sand" is incremented into "sor", "doctor" into "doctand", etc.
+          cyclic = true, -- "or" is incremented into "and".
+        },
       },
       visual = {
         augend.integer.alias.decimal,

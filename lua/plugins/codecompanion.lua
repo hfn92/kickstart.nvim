@@ -16,30 +16,66 @@ return {
         },
       },
       adapters = {
-        qwen = function()
-          return require("codecompanion.adapters").extend("ollama", {
-            name = "qwen", -- Give this adapter a different name to differentiate it from the default ollama adapter
-            schema = {
-              model = {
-                default = "qwen2.5-coder:14b",
+        http = {
+          openai5 = function()
+            return require("codecompanion.adapters").extend("openai", {
+              env = {
+                -- api_key = "cmd:op read op://personal/OpenAI/credential --no-newline",
+                api_key = "OPENAI_API_KEY",
               },
-              -- num_ctx = {
-              --   default = 16384,
+              schema = {
+                model = {
+                  default = "gpt-4.1",
+                },
+              },
+            })
+          end,
+          openai = function()
+            return require("codecompanion.adapters").extend("openai", {
+              env = {
+                -- api_key = "cmd:op read op://personal/OpenAI/credential --no-newline",
+                api_key = "OPENAI_API_KEY",
+              },
+              -- schema = {
+              --   model = {
+              --     -- default = "gpt-5",
+              --   },
               -- },
-              -- num_predict = {
-              --   default = -1,
-              -- },
-            },
-          })
-        end,
+            })
+          end,
+          -- qwen = function()
+          --   return require("codecompanion.adapters").extend("ollama", {
+          --     name = "qwen", -- Give this adapter a different name to differentiate it from the default ollama adapter
+          --     schema = {
+          --       model = {
+          --         default = "qwen2.5-coder:14b",
+          --       },
+          --       -- num_ctx = {
+          --       --   default = 16384,
+          --       -- },
+          --       -- num_predict = {
+          --       --   default = -1,
+          --       -- },
+          --     },
+          --   })
+          -- end,
+        },
       },
       strategies = {
         chat = {
-          adapter = "qwen",
+          -- adapter = "qwen",
+          adapter = "openai5",
         },
         inline = {
-          adapter = "qwen",
+          -- adapter = "qwen",
+          adapter = "openai5",
         },
+      },
+    }
+
+    SetKeyBinds {
+      n = {
+        ["<leader>aa"] = { "<cmd> CodeCompanionChat toggle <CR>", "CodeCompanionActions toggle" },
       },
     }
   end,

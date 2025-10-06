@@ -193,7 +193,14 @@ return {
         ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
         ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
         ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
-        ["<leader>fs"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Find Symbols" },
+        -- ["<leader>fs"] = { "<cmd> Telescope lsp_document_symbols <CR>", "Find Symbols" },
+        ["<leader>fs"] = {
+          function()
+            -- require("telescope.builtin").lsp_document_symbols { show_line = true }
+            require("telescope.builtin").lsp_document_symbols { symbol_width = 45 }
+          end,
+          "Find Symbols",
+        },
         ["<leader>fe"] = { "<cmd> Telescope lsp_dynamic_workspace_symbols <CR>", "Find symbols everywhere" },
         ["<leader>fg"] = { "<cmd> Telescope git_files <CR>", "Search git files" },
         ["<leader>fc"] = { "<cmd> Telescope git_status <CR>", "Search git diff" },

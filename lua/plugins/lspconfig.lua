@@ -203,7 +203,7 @@ return {
         -- "/home/fab/Work/clangd_snapshot_20250525/bin/clangd",
         "--clang-tidy",
         "--header-insertion=never",
-        "--function-arg-placeholders=false",
+        "--function-arg-placeholders=0",
         "--experimental-modules-support",
       },
     }

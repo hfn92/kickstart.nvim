@@ -10,6 +10,7 @@ return {
       cmake_soft_link_compile_commands = true, -- if softlink compile commands json file
       -- cmake_compile_commands_from_lsp = true,
       cmake_build_options = { "-j32" },
+      cmake_generate_options = { "-G", "Ninja", "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" },
 
       cmake_executor = { -- executor to use
         name = "quickfix",
